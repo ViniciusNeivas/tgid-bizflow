@@ -1,4 +1,4 @@
-package br.com.tgid.model;
+package br.com.tgidbizflow.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,9 +53,7 @@ public class Fee {
 
 	public void setCompany(Company company) {
 		this.company = company;
-	}
-	
-	
+	}	
 }
 
 

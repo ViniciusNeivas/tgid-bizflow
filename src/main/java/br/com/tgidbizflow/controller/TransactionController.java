@@ -1,4 +1,4 @@
-package br.com.tgid.controller;
+package br.com.tgidbizflow.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.tgid.model.Company;
-import br.com.tgid.model.Customer;
-import br.com.tgid.service.CompanyService;
-import br.com.tgid.service.CustomerService;
+import br.com.tgidbizflow.model.Company;
+import br.com.tgidbizflow.model.Customer;
+import br.com.tgidbizflow.service.CompanyService;
+import br.com.tgidbizflow.service.CustomerService;
 
 
 @RestController
@@ -40,13 +40,12 @@ public class TransactionController {
 	
 	@PostMapping("/deposit/company/{companyId}")
 	public void depositToCompany(@PathVariable Long companyId, @RequestBody Double amount) {
-		Company company = companyService.getCompanyById(companyId);
-		companyService.deposit(company, amount);
+	    companyService.deposit(companyId, amount);
 	}
-	
+
 	@PostMapping("/withdraw/company/{companyId}")
-	public void withdramFromCompany(@PathVariable Long companyId, @RequestBody Double amount){
-		Company company = companyService.getCompanyById(companyId);
-		companyService.withdraw(company, amount);
+	public void withdrawFromCompany(@PathVariable Long companyId, @RequestBody Double amount){
+	    companyService.withdraw(companyId, amount);
 	}
+
 }
